@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react'
+import { Row, Col, Card, Icon } from 'antd'
 import {
   BarChart,
   Bar,
@@ -60,26 +61,35 @@ export default class Example extends PureComponent {
 
   render() {
     return (
-      <BarChart
-        width={500}
-        height={300}
-        data={data}
-        margin={{
-          top: 20,
-          right: 30,
-          left: 20,
-          bottom: 5,
-        }}
-      >
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="name" />
-        <YAxis />
-        <Tooltip />
-        <Legend />
-        <Bar dataKey="商品" stackId="a" fill="#8884d8" />
-        <Bar dataKey="衣服" stackId="a" fill="#82ca9d" />
-        <Bar dataKey="食物" stackId="a" fill="#ffc658" />
-      </BarChart>
+      <Col lg={18} md={24}>
+        <Card
+          bordered={false}
+          bodyStyle={{
+            padding: '24px 36px 24px 0',
+          }}
+        >
+          <BarChart
+            width={500}
+            height={300}
+            data={data}
+            margin={{
+              top: 20,
+              right: 30,
+              left: 20,
+              bottom: 5,
+            }}
+          >
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="name" />
+            <YAxis />
+            <Tooltip />
+            <Legend />
+            <Bar dataKey="商品" stackId="a" fill="#8884d8" />
+            <Bar dataKey="衣服" stackId="a" fill="#82ca9d" />
+            <Bar dataKey="食物" stackId="a" fill="#ffc658" />
+          </BarChart>
+        </Card>
+      </Col>
     )
   }
 }

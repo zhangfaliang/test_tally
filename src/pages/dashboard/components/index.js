@@ -9,6 +9,8 @@ import Browser from './browser'
 import Cpu from './cpu'
 import User from './user'
 import BarChart from './BarChart'
+import ThirdParty from './thirdParty'
+
 export {
   NumberCard,
   Quote,
@@ -20,5 +22,6 @@ export {
   Browser,
   Cpu,
   User,
-  BarChart
+  BarChart,
+  ThirdParty
 }

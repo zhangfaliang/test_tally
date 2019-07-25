@@ -2,20 +2,18 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'dva'
 import { Row, Col, Card, Icon } from 'antd'
-import { Color } from 'utils'
 import { Page, ScrollBar } from 'components'
 import {
   NumberCard,
-  Quote,
+  ThirdParty,
   LineChart,
-  Weather,
   RecentSales,
   Comments,
   Completed,
   Browser,
   Cpu,
   User,
-  BarChart
+  BarChart,
 } from './components'
 import styles from './index.less'
 import store from 'store'
@@ -26,96 +24,6 @@ const bodyStyle = {
     background: '#fff',
   },
 }
-const arrow = [
-  'step-backward',
-  'step-forward',
-  'fast-backward',
-  'fast-forward',
-  'shrink',
-  'arrow-salt',
-  'caret-down',
-  'caret-left',
-  'caret-up',
-  'caret-right',
-  'caret-circle-right',
-  'caret-circle-left',
-  'caret-circle-o-right',
-  'caret-circle-o-left',
-  'circle-right',
-  'circle-left',
-  'circle-o-right',
-  'circle-o-left',
-  'double-right',
-  'double-left',
-  'verticle-right',
-  'verticle-left',
-  'forward',
-  'backward',
-  'rollback',
-  'retweet',
-  'right',
-  'down',
-  'up',
-  'question',
-  'plus',
-  'pause',
-  'minus',
-  'info-circle',
-  'exclamation',
-  'cross',
-  'check',
-  'lock',
-  'android',
-  'apple',
-  'area-chart',
-  'bar-chart',
-  'bars',
-  'book',
-  'calendar',
-  'code',
-  'copy',
-  'credit-card',
-  'delete',
-  'desktop',
-  'download-line',
-  'edit',
-  'ellipsis',
-  'environment',
-  'file',
-  'folder',
-  'github',
-  'hdd',
-  'frown',
-  'meh',
-  'inbox',
-  'laptop',
-  'large',
-  'line-chart',
-  'link',
-  'logout',
-  'mail',
-  'mobile',
-  'paper-clip',
-  'picture',
-  'pie-chart',
-  'poweroff',
-  'reload',
-  'search',
-  'setting',
-  'share-alt',
-  'shopping-cart',
-  'smile',
-  'tablet',
-  'tag',
-  'tags',
-  'to-top',
-  'unlock',
-  'upload',
-  'user',
-  'video-camera',
-  'windows',
-  'loading',
-]
 @connect(({ app, dashboard, loading }) => ({
   dashboard,
   loading,
@@ -150,69 +58,10 @@ class Dashboard extends PureComponent {
       >
         <Row gutter={24}>
           {numberCards}
-          <Col lg={18} md={24}>
-            <Card
-              bordered={false}
-              bodyStyle={{
-                padding: '24px 36px 24px 0',
-              }}
-            >
-              <LineChart data={sales} />
-            </Card>
-          </Col>
+          <LineChart data={sales} />
+          <BarChart data={sales} />
+          <ThirdParty quote={quote} weather={weather} loading={loading}/>
 
-            <Col lg={18} md={24}>
-            <Card
-              bordered={false}
-              bodyStyle={{
-                padding: '24px 36px 24px 0',
-              }}
-            >
-              <BarChart data={sales} />
-            </Card>
-          </Col>
-          
-          {/* {arrow.map(item => (
-            <Col key={item} lg={6} md={12}>
-              <Icon type={item} />
-            </Col>
-          ))} */}
-
-          <Col lg={6} md={24}>
-            <Row gutter={24}>
-              <Col lg={24} md={12}>
-                <Card
-                  bordered={false}
-                  className={styles.weather}
-                  bodyStyle={{
-                    padding: 0,
-                    height: 204,
-                    background: Color.blue,
-                  }}
-                >
-                  <Weather
-                    {...weather}
-                    loading={loading.effects['dashboard/queryWeather']}
-                  />
-                </Card>
-              </Col>
-              <Col lg={24} md={12}>
-                <Card
-                  bordered={false}
-                  className={styles.quote}
-                  bodyStyle={{
-                    padding: 0,
-                    height: 204,
-                    background: Color.peach,
-                  }}
-                >
-                  <ScrollBar>
-                    <Quote {...quote} />
-                  </ScrollBar>
-                </Card>
-              </Col>
-            </Row>
-          </Col>
           <Col lg={12} md={24}>
             <Card bordered={false} {...bodyStyle}>
               <RecentSales data={recentSales} />
