@@ -34,7 +34,7 @@ function DutyRatio({ data, bodyStyle = {} }) {
     },
   ]
   return (
-    <Col lg={8} md={24}>
+    <Col lg={12} md={24}>
       <Card bordered={false} {...bodyStyle}>
         <Table
           pagination={false}

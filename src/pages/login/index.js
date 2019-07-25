@@ -97,11 +97,11 @@ class Login extends PureComponent {
               <p>
                 <span>
                   <Trans>Username</Trans>
-                  ：guest
+                  ：red
                 </span>
                 <span>
                   <Trans>Password</Trans>
-                  ：guest
+                  ：red
                 </span>
               </p>
             </Row>

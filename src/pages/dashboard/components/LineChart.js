@@ -17,8 +17,7 @@ import styles from './sales.less'
 
 function Sales({ data }) {
   return (
-    <Row gutter={24}>
-      <Col lg={18} md={24}>
+      <Col lg={12} md={24}>
         <Card
           bordered={false}
           bodyStyle={{
@@ -116,7 +115,6 @@ function Sales({ data }) {
           </div>
         </Card>
       </Col>
-    </Row>
   )
 }
 

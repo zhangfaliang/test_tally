@@ -15,7 +15,7 @@ const countUpProps = {
 
 function User({ avatar, username, sales = 0, sold = 0, bodyStyle = {} }) {
   return (
-    <Col lg={8} md={24}>
+    <Col lg={12} md={24}>
       <Card bordered={false} bodyStyle={{ ...bodyStyle.bodyStyle, padding: 0 }}>
         <div className={styles.user}>
           <div className={styles.header}>

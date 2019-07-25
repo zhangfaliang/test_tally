@@ -61,7 +61,7 @@ export default class Example extends PureComponent {
 
   render() {
     return (
-      <Col lg={18} md={24}>
+      <Col lg={12} md={24}>
         <Card
           bordered={false}
           bodyStyle={{
@@ -70,7 +70,7 @@ export default class Example extends PureComponent {
         >
           <BarChart
             width={500}
-            height={300}
+            height={360}
             data={data}
             margin={{
               top: 20,

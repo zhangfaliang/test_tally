@@ -10,8 +10,8 @@ export default class ThirdPartyComponent extends PureComponent {
   render() {
     const { weather, quote, loading } = this.props
     return (
-      <Col lg={6} md={24}>
-        <Row gutter={24}>
+      <Col lg={12} md={24}>
+        <Row gutter={12}>
           <Col lg={24} md={12}>
             <Card
               bordered={false}
