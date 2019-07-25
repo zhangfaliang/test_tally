@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Button, Avatar } from 'antd'
+import { Button, Avatar, Col, Card } from 'antd'
 import CountUp from 'react-countup'
 import { Color } from 'utils'
 import styles from './user.less'
@@ -13,35 +13,39 @@ const countUpProps = {
   separator: ',',
 }
 
-function User({ avatar, username, sales = 0, sold = 0 }) {
+function User({ avatar, username, sales = 0, sold = 0, bodyStyle = {} }) {
   return (
-    <div className={styles.user}>
-      <div className={styles.header}>
-        <div className={styles.headerinner}>
-          <Avatar size="large" src={avatar} />
-          <h5 className={styles.name}>{username}</h5>
+    <Col lg={8} md={24}>
+      <Card bordered={false} bodyStyle={{ ...bodyStyle.bodyStyle, padding: 0 }}>
+        <div className={styles.user}>
+          <div className={styles.header}>
+            <div className={styles.headerinner}>
+              <Avatar size="large" src={avatar} />
+              <h5 className={styles.name}>{username}</h5>
+            </div>
+          </div>
+          <div className={styles.number}>
+            <div className={styles.item}>
+              <p>EARNING SALES</p>
+              <p style={{ color: Color.green }}>
+                <CountUp end={sales} prefix="$" {...countUpProps} />
+              </p>
+            </div>
+            <div className={styles.item}>
+              <p>ITEM SOLD</p>
+              <p style={{ color: Color.blue }}>
+                <CountUp end={sold} {...countUpProps} />
+              </p>
+            </div>
+          </div>
+          <div className={styles.footer}>
+            <Button type="ghost" size="large">
+              View Profile
+            </Button>
+          </div>
         </div>
-      </div>
-      <div className={styles.number}>
-        <div className={styles.item}>
-          <p>EARNING SALES</p>
-          <p style={{ color: Color.green }}>
-            <CountUp end={sales} prefix="$" {...countUpProps} />
-          </p>
-        </div>
-        <div className={styles.item}>
-          <p>ITEM SOLD</p>
-          <p style={{ color: Color.blue }}>
-            <CountUp end={sold} {...countUpProps} />
-          </p>
-        </div>
-      </div>
-      <div className={styles.footer}>
-        <Button type="ghost" size="large">
-          View Profile
-        </Button>
-      </div>
-    </div>
+      </Card>
+    </Col>
   )
 }
 

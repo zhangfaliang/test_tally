@@ -10,7 +10,7 @@ import {
   RecentSales,
   Comments,
   Completed,
-  Browser,
+  DutyRatio,
   Cpu,
   User,
   BarChart,
@@ -60,50 +60,17 @@ class Dashboard extends PureComponent {
           {numberCards}
           <LineChart data={sales} />
           <BarChart data={sales} />
-          <ThirdParty quote={quote} weather={weather} loading={loading}/>
-
-          <Col lg={12} md={24}>
-            <Card bordered={false} {...bodyStyle}>
-              <RecentSales data={recentSales} />
-            </Card>
-          </Col>
-          <Col lg={12} md={24}>
-            <Card bordered={false} {...bodyStyle}>
-              <ScrollBar>
-                <Comments data={comments} />
-              </ScrollBar>
-            </Card>
-          </Col>
-          <Col lg={24} md={24}>
-            <Card
-              bordered={false}
-              bodyStyle={{
-                padding: '24px 36px 24px 0',
-              }}
-            >
-              <Completed data={completed} />
-            </Card>
-          </Col>
-          <Col lg={8} md={24}>
-            <Card bordered={false} {...bodyStyle}>
-              <Browser data={browser} />
-            </Card>
-          </Col>
-          <Col lg={8} md={24}>
-            <Card bordered={false} {...bodyStyle}>
-              <ScrollBar>
-                <Cpu {...cpu} />
-              </ScrollBar>
-            </Card>
-          </Col>
-          <Col lg={8} md={24}>
-            <Card
-              bordered={false}
-              bodyStyle={{ ...bodyStyle.bodyStyle, padding: 0 }}
-            >
-              <User {...user} avatar={avatar} username={username} />
-            </Card>
-          </Col>
+          <ThirdParty quote={quote} weather={weather} loading={loading} />
+          <RecentSales data={recentSales} bodyStyle={bodyStyle} />
+          <Comments data={comments} bodyStyle={bodyStyle} />
+          {/* <Completed data={completed} /> */}
+          <DutyRatio data={browser} bodyStyle={bodyStyle} />
+          <User
+            {...user}
+            avatar={avatar}
+            username={username}
+            bodyStyle={bodyStyle}
+          />
         </Row>
       </Page>
     )

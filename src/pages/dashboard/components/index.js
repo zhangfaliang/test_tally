@@ -5,7 +5,7 @@ import Weather from './weather'
 import RecentSales from './recentSales'
 import Comments from './comments'
 import Completed from './completed'
-import Browser from './browser'
+import DutyRatio from './dutyRatio'
 import Cpu from './cpu'
 import User from './user'
 import BarChart from './BarChart'
@@ -19,7 +19,7 @@ export {
   RecentSales,
   Comments,
   Completed,
-  Browser,
+  DutyRatio,
   Cpu,
   User,
   BarChart,

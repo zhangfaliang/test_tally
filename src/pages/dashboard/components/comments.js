@@ -1,8 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Table, Tag } from 'antd'
+import { Table, Tag, Col, Card } from 'antd'
 import { Color } from 'utils'
 import styles from './comments.less'
+import { ScrollBar } from 'components'
 
 const status = {
   1: {
@@ -19,7 +20,7 @@ const status = {
   },
 }
 
-function Comments({ data }) {
+function Comments({ data, bodyStyle={} }) {
   const columns = [
     {
       title: 'avatar',
@@ -49,15 +50,21 @@ function Comments({ data }) {
     },
   ]
   return (
-    <div className={styles.comments}>
-      <Table
-        pagination={false}
-        showHeader={false}
-        columns={columns}
-        rowKey={(record, key) => key}
-        dataSource={data.filter((item, key) => key < 3)}
-      />
-    </div>
+    <Col lg={12} md={24}>
+      <Card bordered={false} {...bodyStyle}>
+        <ScrollBar>
+          <div className={styles.comments}>
+            <Table
+              pagination={false}
+              showHeader={false}
+              columns={columns}
+              rowKey={(record, key) => key}
+              dataSource={data.filter((item, key) => key < 3)}
+            />
+          </div>
+        </ScrollBar>
+      </Card>
+    </Col>
   )
 }
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Table, Tag } from 'antd'
+import { Table, Tag, Card, Col } from 'antd'
 import { Color } from 'utils'
 import styles from './browser.less'
 
@@ -19,7 +19,7 @@ const status = {
   },
 }
 
-function Browser({ data }) {
+function DutyRatio({ data, bodyStyle = {} }) {
   const columns = [
     {
       title: 'name',
@@ -34,18 +34,22 @@ function Browser({ data }) {
     },
   ]
   return (
-    <Table
-      pagination={false}
-      showHeader={false}
-      columns={columns}
-      rowKey={(record, key) => key}
-      dataSource={data}
-    />
+    <Col lg={8} md={24}>
+      <Card bordered={false} {...bodyStyle}>
+        <Table
+          pagination={false}
+          showHeader={false}
+          columns={columns}
+          rowKey={(record, key) => key}
+          dataSource={data}
+        />
+      </Card>
+    </Col>
   )
 }
 
-Browser.propTypes = {
+DutyRatio.propTypes = {
   data: PropTypes.array,
 }
 
-export default Browser
+export default DutyRatio
