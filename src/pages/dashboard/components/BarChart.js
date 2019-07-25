@@ -10,6 +10,7 @@ import {
   Tooltip,
   Legend,
 } from 'recharts'
+import { ScrollBar } from 'components'
 
 const data = [
   {
@@ -57,8 +58,6 @@ const data = [
 ]
 
 export default class Example extends PureComponent {
-  static jsfiddleUrl = 'https://jsfiddle.net/alidingling/9hjfkp73/'
-
   render() {
     return (
       <Col lg={12} md={24}>
@@ -68,26 +67,28 @@ export default class Example extends PureComponent {
             padding: '24px 36px 24px 0',
           }}
         >
-          <BarChart
-            width={500}
-            height={360}
-            data={data}
-            margin={{
-              top: 20,
-              right: 30,
-              left: 20,
-              bottom: 5,
-            }}
-          >
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="name" />
-            <YAxis />
-            <Tooltip />
-            <Legend />
-            <Bar dataKey="商品" stackId="a" fill="#8884d8" />
-            <Bar dataKey="衣服" stackId="a" fill="#82ca9d" />
-            <Bar dataKey="食物" stackId="a" fill="#ffc658" />
-          </BarChart>
+          <ScrollBar>
+            <BarChart
+              width={500}
+              height={360}
+              data={data}
+              margin={{
+                top: 20,
+                right: 30,
+                left: 20,
+                bottom: 5,
+              }}
+            >
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="name" />
+              <YAxis />
+              <Tooltip />
+              <Legend />
+              <Bar dataKey="商品" stackId="a" fill="#8884d8" />
+              <Bar dataKey="衣服" stackId="a" fill="#82ca9d" />
+              <Bar dataKey="食物" stackId="a" fill="#ffc658" />
+            </BarChart>
+          </ScrollBar>
         </Card>
       </Col>
     )

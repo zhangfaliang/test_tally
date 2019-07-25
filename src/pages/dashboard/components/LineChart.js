@@ -1,7 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import classnames from 'classnames'
-import { Row, Col, Card, Icon } from 'antd'
+import { Row, Col, Card } from 'antd'
+import { ScrollBar } from 'components'
+
 import { Color } from 'utils'
 import {
   LineChart,
@@ -17,13 +19,14 @@ import styles from './sales.less'
 
 function Sales({ data }) {
   return (
-      <Col lg={12} md={24}>
-        <Card
-          bordered={false}
-          bodyStyle={{
-            padding: '24px 36px 24px 0',
-          }}
-        >
+    <Col lg={12} md={24}>
+      <Card
+        bordered={false}
+        bodyStyle={{
+          padding: '24px 36px 24px 0',
+        }}
+      >
+        <ScrollBar>
           <div className={styles.sales}>
             <div className={styles.title}>花销</div>
             <ResponsiveContainer minHeight={360}>
@@ -94,27 +97,28 @@ function Sales({ data }) {
                   dot={{ fill: Color.purple }}
                   activeDot={{ r: 5, strokeWidth: 0 }}
                 />
-                {/* <Line
-            type="monotone"
-            dataKey="Clothes"
-            stroke={Color.red}
-            strokeWidth={3}
-            dot={{ fill: Color.red }}
-            activeDot={{ r: 5, strokeWidth: 0 }}
-          />
-          <Line
-            type="monotone"
-            dataKey="Electronics"
-            stroke={Color.green}
-            strokeWidth={3}
-            dot={{ fill: Color.green }}
-            activeDot={{ r: 5, strokeWidth: 0 }}
-          /> */}
+                <Line
+                  type="monotone"
+                  dataKey="Clothes"
+                  stroke={Color.red}
+                  strokeWidth={3}
+                  dot={{ fill: Color.red }}
+                  activeDot={{ r: 5, strokeWidth: 0 }}
+                />
+                <Line
+                  type="monotone"
+                  dataKey="Electronics"
+                  stroke={Color.green}
+                  strokeWidth={3}
+                  dot={{ fill: Color.green }}
+                  activeDot={{ r: 5, strokeWidth: 0 }}
+                />
               </LineChart>
             </ResponsiveContainer>
           </div>
-        </Card>
-      </Col>
+        </ScrollBar>
+      </Card>
+    </Col>
   )
 }
 

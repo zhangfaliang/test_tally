@@ -25,14 +25,14 @@ function User({ avatar, username, sales = 0, sold = 0, bodyStyle = {} }) {
             </div>
           </div>
           <div className={styles.number}>
-            <div className={styles.item}>
-              <p>EARNING SALES</p>
+            {/* <div className={styles.item}>
+              <p></p>
               <p style={{ color: Color.green }}>
                 <CountUp end={sales} prefix="$" {...countUpProps} />
               </p>
-            </div>
+            </div> */}
             <div className={styles.item}>
-              <p>ITEM SOLD</p>
+              <p>总支出</p>
               <p style={{ color: Color.blue }}>
                 <CountUp end={sold} {...countUpProps} />
               </p>
@@ -40,7 +40,7 @@ function User({ avatar, username, sales = 0, sold = 0, bodyStyle = {} }) {
           </div>
           <div className={styles.footer}>
             <Button type="ghost" size="large">
-              View Profile
+              记账
             </Button>
           </div>
         </div>

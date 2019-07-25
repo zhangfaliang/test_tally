@@ -49,7 +49,7 @@ class Dashboard extends PureComponent {
     var data1 = {
       icon: 'pay-circle-o',
       color: Color.green,
-      title: '总支出',
+      title: '本月消费',
       number: 2781,
     }
     return (
@@ -67,7 +67,7 @@ class Dashboard extends PureComponent {
           />
           <LineChart data={sales} />
           <BarChart data={sales} />
-          <ThirdParty quote={quote} weather={weather} loading={loading} />
+          {/* <ThirdParty quote={quote} weather={weather} loading={loading} /> */}
           <RecentSales data={recentSales} bodyStyle={bodyStyle} />
           {/* <Comments data={comments} bodyStyle={bodyStyle} /> */}
           {/* <Completed data={completed} /> */}
