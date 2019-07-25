@@ -1,13 +1,13 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'dva'
-import { Row, Col, Card } from 'antd'
+import { Row, Col, Card, Icon } from 'antd'
 import { Color } from 'utils'
 import { Page, ScrollBar } from 'components'
 import {
   NumberCard,
   Quote,
-  Sales,
+  LineChart,
   Weather,
   RecentSales,
   Comments,
@@ -15,6 +15,7 @@ import {
   Browser,
   Cpu,
   User,
+  BarChart
 } from './components'
 import styles from './index.less'
 import store from 'store'
@@ -25,7 +26,96 @@ const bodyStyle = {
     background: '#fff',
   },
 }
-
+const arrow = [
+  'step-backward',
+  'step-forward',
+  'fast-backward',
+  'fast-forward',
+  'shrink',
+  'arrow-salt',
+  'caret-down',
+  'caret-left',
+  'caret-up',
+  'caret-right',
+  'caret-circle-right',
+  'caret-circle-left',
+  'caret-circle-o-right',
+  'caret-circle-o-left',
+  'circle-right',
+  'circle-left',
+  'circle-o-right',
+  'circle-o-left',
+  'double-right',
+  'double-left',
+  'verticle-right',
+  'verticle-left',
+  'forward',
+  'backward',
+  'rollback',
+  'retweet',
+  'right',
+  'down',
+  'up',
+  'question',
+  'plus',
+  'pause',
+  'minus',
+  'info-circle',
+  'exclamation',
+  'cross',
+  'check',
+  'lock',
+  'android',
+  'apple',
+  'area-chart',
+  'bar-chart',
+  'bars',
+  'book',
+  'calendar',
+  'code',
+  'copy',
+  'credit-card',
+  'delete',
+  'desktop',
+  'download-line',
+  'edit',
+  'ellipsis',
+  'environment',
+  'file',
+  'folder',
+  'github',
+  'hdd',
+  'frown',
+  'meh',
+  'inbox',
+  'laptop',
+  'large',
+  'line-chart',
+  'link',
+  'logout',
+  'mail',
+  'mobile',
+  'paper-clip',
+  'picture',
+  'pie-chart',
+  'poweroff',
+  'reload',
+  'search',
+  'setting',
+  'share-alt',
+  'shopping-cart',
+  'smile',
+  'tablet',
+  'tag',
+  'tags',
+  'to-top',
+  'unlock',
+  'upload',
+  'user',
+  'video-camera',
+  'windows',
+  'loading',
+]
 @connect(({ app, dashboard, loading }) => ({
   dashboard,
   loading,
@@ -47,9 +137,8 @@ class Dashboard extends PureComponent {
       cpu,
       user,
     } = dashboard
-
     const numberCards = numbers.map((item, key) => (
-      <Col key={key} lg={6} md={12}>
+      <Col key={key} lg={24} md={24}>
         <NumberCard {...item} />
       </Col>
     ))
@@ -68,9 +157,27 @@ class Dashboard extends PureComponent {
                 padding: '24px 36px 24px 0',
               }}
             >
-              <Sales data={sales} />
+              <LineChart data={sales} />
             </Card>
           </Col>
+
+            <Col lg={18} md={24}>
+            <Card
+              bordered={false}
+              bodyStyle={{
+                padding: '24px 36px 24px 0',
+              }}
+            >
+              <BarChart data={sales} />
+            </Card>
+          </Col>
+          
+          {/* {arrow.map(item => (
+            <Col key={item} lg={6} md={12}>
+              <Icon type={item} />
+            </Col>
+          ))} */}
+
           <Col lg={6} md={24}>
             <Row gutter={24}>
               <Col lg={24} md={12}>
