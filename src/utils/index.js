@@ -204,7 +204,6 @@ export function queryAncestors(array, current, parentId, id = 'id') {
  */
 export function queryLayout(layouts, pathname) {
   let result = 'public'
-
   const isMatch = regepx => {
     return regepx instanceof RegExp
       ? regepx.test(pathname)
@@ -233,7 +232,7 @@ export function queryLayout(layouts, pathname) {
     }
 
     if (include && !exclude) {
-      result = item.name
+      result = item.name;
       break
     }
   }

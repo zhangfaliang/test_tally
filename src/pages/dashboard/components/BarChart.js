@@ -1,9 +1,8 @@
 import React, { PureComponent } from 'react'
-import { Row, Col, Card, Icon } from 'antd'
+import {  Col, Card } from 'antd'
 import {
   BarChart,
   Bar,
-  Cell,
   XAxis,
   YAxis,
   CartesianGrid,

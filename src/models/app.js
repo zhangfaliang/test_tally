@@ -74,6 +74,7 @@ export default {
       if (isInit) return
       const { locationPathname } = yield select(_ => _.app)
       const { success, user } = yield call(queryUserInfo, payload)
+      console.log(success, user ,'000000000')
       if (success && user) {
         const { list } = yield call(queryRouteList)
         const { permissions } = user
@@ -98,7 +99,7 @@ export default {
         store.set('routeList', routeList)
         store.set('permissions', permissions)
         store.set('user', user)
-        store.set('isInit', true)
+        store.set('isInit', true);
         if (pathMatchRegexp(['/', '/login'], window.location.pathname)) {
           router.push({
             pathname: '/dashboard',
