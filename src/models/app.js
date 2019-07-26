@@ -74,7 +74,6 @@ export default {
       if (isInit) return
       const { locationPathname } = yield select(_ => _.app)
       const { success, user } = yield call(queryUserInfo, payload)
-      console.log(success, user ,'000000000')
       if (success && user) {
         const { list } = yield call(queryRouteList)
         const { permissions } = user
