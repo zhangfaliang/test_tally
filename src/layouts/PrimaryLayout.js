@@ -146,10 +146,10 @@ class PrimaryLayout extends PureComponent {
               className={styles.backTop}
               target={() => document.querySelector('#primaryLayout')}
             />
-            <GlobalFooter
+            {/* <GlobalFooter
               className={styles.footer}
               copyright={config.copyright}
-            />
+            /> */}
           </div>
         </Layout>
       </Fragment>
