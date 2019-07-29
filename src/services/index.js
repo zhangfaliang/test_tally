@@ -29,10 +29,10 @@ for (const key in api) {
 
 APIFunction.queryWeather = params => {
   params.key = 'i7sau1babuzwhycn'
-  return request({
-    url: `/test/v1/weather/now.json`,
-    data: params,
-  })
+  // return request({
+  //   url: `/test/v1/weather/now.json`,
+  //   data: params,
+  // })
 }
 
 export default APIFunction
